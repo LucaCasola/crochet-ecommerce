@@ -11,7 +11,6 @@ export const ProductCard: React.FC<{
 }> = (props) => {
   const { doc } = props
   const { title, description, price, images } = doc || {}
-  console.log('Doc: ', { doc })
 
   return (
     <div className="flex flex-col h-full items-center justify-center p-2 border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer">

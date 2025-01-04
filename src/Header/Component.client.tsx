@@ -8,6 +8,7 @@ import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
+import { ShoppingCart } from 'lucide-react'
 
 interface HeaderClientProps {
   data: Header
@@ -30,12 +31,19 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
-        <Link href="/">
-          <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-        </Link>
-        <HeaderNav data={data} />
+    <header className="w-full bg-secondary">
+      <div
+        className="container z-20 py-1 flex items-center justify-between"
+        {...(theme ? { 'data-theme': theme } : {})}
+      >
+        <div className="flex gap-12">
+          <Link href="/">
+            <Logo loading="eager" priority="high" />
+          </Link>
+          <HeaderNav data={data} />
+        </div>
+
+        <ShoppingCart color="background" />
       </div>
     </header>
   )
